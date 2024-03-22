@@ -5,12 +5,11 @@ import { Sign_In, Sign_Up } from "@/components/auth/forms";
 
 import DashboardLayout from "@/components/dashboard/DashboardLayout";
 import {
-  ChangeForm,
   Compensation,
-  FrequentlyAskedQuestions,
+  Employee,
+  EmployeeRegistration,
   InsuranceContract,
-  UserList,
-  UserRegister,
+  ListEmployees,
 } from "@/components/dashboard/pages";
 
 const routes = () => {
@@ -27,12 +26,17 @@ const routes = () => {
 
         {/* private routes */}
         <Route path="/" element={<DashboardLayout />}>
-          <Route path="/" index element={<UserRegister />} />
-          <Route path="/user-list" element={<UserList />} />
-          <Route path="/insurance-contract" element={<InsuranceContract />} />
-          <Route path="/compensation" element={<Compensation />} />
-          <Route path="/faq" element={<FrequentlyAskedQuestions />} />
-          <Route path="/ChangeForm" element={<ChangeForm />} />
+          {/* Nested routes for Employee */}
+          <Route path="/" element={<Employee />}>
+            <Route
+              path="/employee-registration"
+              element={<EmployeeRegistration />}
+            />
+            <Route path="list-employees" element={<ListEmployees />} />
+          </Route>
+
+          <Route path="insurance-contract" element={<InsuranceContract />} />
+          <Route path="compensation" element={<Compensation />} />
         </Route>
       </Routes>
     </>
