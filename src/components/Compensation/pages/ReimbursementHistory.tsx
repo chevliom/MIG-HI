@@ -37,6 +37,7 @@ const ReimbursementHistory = () => {
 
   return (
     <>
+      {/* pending this table only  */}
       {insuranceData.length === 0 && (
         <div className="flex flex-col justify-center items-center w-full">
           <img
