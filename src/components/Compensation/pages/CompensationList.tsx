@@ -20,26 +20,28 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-import employeeDataJson from "../../../../json/employeeData.json";
-import "./employeeCustomScroller.css";
-import { useNavigate } from "react-router-dom";
+import insuranceDataJson from "../../../../json/insuranceData.json";
+import "@/components/Employees/pages/employeeCustomScroller.css";
 
 interface EmployeeData {
   name: string;
+  userId: string;
   country: string;
   city: string;
-  amount: number;
+  startDate: string;
+  endDate: string;
+  amount: string;
+  status: string;
 }
 
-const ListEmployees = () => {
-  const navigate = useNavigate();
+const CompensationList = () => {
   const [date, setDate] = React.useState<Date>();
 
-  const [employeeData, setEmployeeData] = React.useState<EmployeeData[]>([]);
+  const [insuranceData, setInsuranceData] = React.useState<EmployeeData[]>([]);
 
   // if api come then in useEffect make a function and call that api and out of function call that function
   React.useEffect(() => {
-    setEmployeeData(employeeDataJson);
+    setInsuranceData(insuranceDataJson);
   }, []);
 
   return (
@@ -98,74 +100,66 @@ const ListEmployees = () => {
         </div>
 
         <div className="flex gap-8 flex-col items-center w-full">
-          <div className="flex gap-2 px-3 py-4 h-auto bg-[#E8EEEF] rounded-md w-full">
-            {/* This one */}
+          {/* top tabs */}
+          <div className="grid grid-cols-7 gap-2 px-3 py-4 h-auto bg-[#E8EEEF] rounded-md">
+            {/*  */}
             <div className="flex flex-col gap-2">
               <label htmlFor="" className="text-[#005F7E]">
-                Овог
+                ID дугаар
               </label>
               <Input />
             </div>
 
-            {/* Name */}
+            {/*  */}
             <div className="flex flex-col gap-2">
               <label htmlFor="" className="text-[#005F7E]">
-                Нэр
+                Илгээсэн огноо
               </label>
               <Input />
             </div>
 
-            {/* Email */}
+            {/*  */}
             <div className="flex flex-col gap-2">
               <label htmlFor="" className="text-[#005F7E]">
-                Имэйл
+                Хуваарилах
               </label>
               <Input />
             </div>
 
-            {/* Phone number */}
+            {/*  */}
             <div className="flex flex-col gap-2">
               <label htmlFor="" className="text-[#005F7E]">
-                Утасны дугаар
+                Төлөв
+              </label>
+              <Input />
+            </div>
+
+            {/*  */}
+            <div className="flex flex-col gap-2">
+              <label htmlFor="" className="text-[#005F7E]">
+                I(ай)-тай дугаар
               </label>
               <Input />
             </div>
           </div>
 
-          <div className="w-full flex flex-col gap-2 h-[18rem] overflow-y-auto custom-scroller-design">
-            {employeeData.map((employee, index) => (
+          <div className="flex flex-col w-full gap-2 h-[45vh] overflow-y-auto custom-scroller-design">
+            {insuranceData.map((insurance, index) => (
               <div
                 key={index}
-                className="grid grid-cols-8 items-center justify-start w-full"
+                className="grid grid-cols-7 gap-3 items-center justify-start w-full px-3"
               >
-                <span
-                  className="cursor-pointer"
-                  onClick={() => navigate("/detail-list-employees")}
-                >
-                  {employee.name}
-                </span>
-                <span
-                  className="cursor-pointer"
-                  onClick={() => navigate("/detail-list-employees")}
-                >
-                  {employee.country}
-                </span>
-                <span
-                  className="cursor-pointer"
-                  onClick={() => navigate("/detail-list-employees")}
-                >
-                  {employee.city}
-                </span>
-                <span
-                  className="cursor-pointer"
-                  onClick={() => navigate("/detail-list-employees")}
-                >
-                  {employee.amount}
+                <span className="text-[#005F7E] underline underline-offset-4">
+                  {insurance.userId}
                 </span>
 
-                <div className="col-span-2 w-full">
+                <span className="text-[#424B5A]">
+                  {insurance.startDate}, {insurance.amount}
+                </span>
+
+                <div className="w-full">
                   <Select>
-                    <SelectTrigger className="w-3/4 h-7 focus:outline-none focus:ring-0 focus:border-none rounded-full">
+                    <SelectTrigger className="h-7 focus:outline-none focus:ring-0 focus:border-none rounded-full">
                       <SelectValue placeholder="Нөхөн төлбөрийн захирал" />
                     </SelectTrigger>
                     <SelectContent>
@@ -178,11 +172,26 @@ const ListEmployees = () => {
                   </Select>
                 </div>
 
-                <div className="flex items-center justify-between">
-                  <img src="/assets/employee/editIcon.svg" alt="editIcon" />
-
-                  <img src="/assets/employee/deleteIcon.svg" alt="deleteIcon" />
+                <div className="w-full">
+                  <Button
+                    className={`${
+                      insurance.status === "Идэвхитэй"
+                        ? "bg-[#00A27B29] hover:bg-[#00A27A37] text-[#00A27B] rounded-full"
+                        : "bg-[#FF5C5E29] hover:bg-[#FF5C4F18] text-[#FF5C5E] rounded-full"
+                    }`}
+                  >
+                    {insurance.status}
+                  </Button>
                 </div>
+
+                {/* <div className="flex items-center justify-between"> */}
+                <div className="w-full flex gap-8 col-span-2">
+                  <p>I2322776</p>
+                  <img src="/assets/employee/editIcon.svg" alt="editIcon" />
+                </div>
+
+                <img src="/assets/employee/deleteIcon.svg" alt="deleteIcon" />
+                {/* </div> */}
               </div>
             ))}
           </div>
@@ -192,4 +201,4 @@ const ListEmployees = () => {
   );
 };
 
-export default ListEmployees;
+export default CompensationList;

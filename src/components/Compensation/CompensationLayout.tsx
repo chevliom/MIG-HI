@@ -50,6 +50,22 @@ const CompensationLayout = () => {
               {/* Reimbursement history */}
             </h4>
           </Link>
+
+          {/* Compensation list */}
+          <Link
+            to={"/compensation/compensation-list"}
+            onClick={() => handleTabClick("/compensation/compensation-list")}
+            className={`${
+              activeTab === "/compensation/compensation-list"
+                ? "bg-[#FFFFFF]"
+                : "bg-[#F9F9F9]"
+            } hover:bg-[#FFFFFF] rounded-t-2xl p-3`}
+          >
+            <h4 className="text-[16px] leading-[16px] text-[#424B5A] font-medium">
+              Нөхөн төлбөрийн жагсаалт
+              {/* Compensation list */}
+            </h4>
+          </Link>
         </div>
 
         {/* body div */}

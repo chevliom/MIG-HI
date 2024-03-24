@@ -7,6 +7,7 @@ import DashboardLayout from "@/components/dashboard/DashboardLayout";
 
 import EmployeeLayout from "@/components/Employees/EmployeeLayout";
 import {
+  DetailsListEmployees,
   EmployeeRegistration,
   ListEmployees,
 } from "@/components/Employees/pages";
@@ -18,6 +19,7 @@ import {
 } from "@/components/Insurance/pages";
 import CompensationLayout from "@/components/Compensation/CompensationLayout";
 import {
+  CompensationList,
   CompensationMaterials,
   ReimbursementHistory,
 } from "@/components/Compensation/pages";
@@ -43,6 +45,10 @@ const routes = () => {
               element={<EmployeeRegistration />}
             />
             <Route path="list-employees" element={<ListEmployees />} />
+            <Route
+              path="detail-list-employees"
+              element={<DetailsListEmployees />}
+            />
           </Route>
 
           {/* Nested routes for insurance */}
@@ -65,6 +71,8 @@ const routes = () => {
               path="reimbursement-history"
               element={<ReimbursementHistory />}
             />
+
+            <Route path="compensation-list" element={<CompensationList />} />
           </Route>
         </Route>
       </Routes>

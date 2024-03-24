@@ -103,8 +103,9 @@ const ReimbursementHistory = () => {
           </div>
         </div>
 
-        <div className="flex gap-8 flex-col items-center w-full">
-          <div className="grid grid-cols-12 gap-2 px-3 py-4 h-auto bg-[#E8EEEF] rounded-md">
+        <div className="flex gap-8 flex-col items-center w-full overflow-x-auto">
+          {/* top tabs */}
+          <div className="flex gap-2 px-3 py-4 w-full h-auto bg-[#E8EEEF] rounded-md flex-nowrap">
             {/* This one */}
             <div className="flex flex-col gap-2">
               <label htmlFor="" className="text-[#005F7E]">
@@ -230,7 +231,7 @@ const ReimbursementHistory = () => {
             {insuranceData.map((insurance, index) => (
               <div
                 key={index}
-                className="grid grid-cols-8 items-center justify-start w-full px-3"
+                className="grid grid-cols-7 gap-3 items-center justify-start w-full px-3"
               >
                 <span className="text-[#005F7E] underline underline-offset-4">
                   {insurance.userId}
