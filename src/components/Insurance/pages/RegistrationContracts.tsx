@@ -12,10 +12,8 @@ import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ChangeEvent, useRef } from "react";
 import { useForm } from "react-hook-form";
-// import { Link } from "react-router-dom";
 import { z } from "zod";
-
-const ListEmployees = () => {
+const RegistrationContracts = () => {
   // here define the valu type
   const formSchema = z.object({
     firstName: z.string().min(2, {
@@ -78,24 +76,24 @@ const ListEmployees = () => {
 
   return (
     <>
-      <div className="w-full flex">
+      <div className="flex flex-col justify-between w-full">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="w-full flex flex-col gap-4"
           >
-            {/* register number name this one */}
-            <div className="w-full flex gap-2">
-              {/* This one */}
+            {/* Organization register */}
+            <div className="w-full flex items-center gap-2">
+              {/* Organization register */}
               <FormField
                 control={form.control}
                 name="firstName"
                 render={({ field }) => (
                   <FormItem className="w-2/6">
-                    <FormLabel>Овог</FormLabel>
+                    <FormLabel>Байгууллагын регистр</FormLabel>
                     <FormControl className="w-full">
                       <Input
-                        placeholder="Овог оруулах..."
+                        placeholder="Дугаар..."
                         {...field}
                         className="w-full"
                       />
@@ -104,6 +102,16 @@ const ListEmployees = () => {
                   </FormItem>
                 )}
               />
+
+              <div className="w-1/2 flex gap-2 items-center mt-8">
+                {/* Check */}
+                <Button
+                  type="submit"
+                  className="bg-[#005F7E] hover:bg-[#005f7eed] text-lg font-semibold"
+                >
+                  Шалгах
+                </Button>
+              </div>
 
               {/* Name */}
               <FormField
@@ -185,14 +193,12 @@ const ListEmployees = () => {
               />
             </div>
 
-            {/* upload photo section here  */}
-
-            {/* Photo ID, driving lincense, photo of vehicle */}
+            {/* Excle Data entry, enter contact information, enter the annex to the contract */}
             <div className="w-full flex gap-2 my-3">
-              {/* Photo ID */}
+              {/* Excel data entry */}
               <div className="flex flex-col gap-2 w-full">
                 <span className="text-sm text-[#424B5A]">
-                  Иргэний үнэмлэхний зураг
+                  Excel мэдээлэл оруулах
                 </span>
                 <div
                   className="bg-[#E6EFF2] h-[96px] w-full max-w-sm flex flex-col justify-center items-center rounded-md p-2 relative cursor-pointer"
@@ -219,10 +225,10 @@ const ListEmployees = () => {
                 </div>
               </div>
 
-              {/* Driving license photo */}
+              {/* Enter contract information */}
               <div className="flex flex-col gap-2 w-full">
                 <span className="text-sm text-[#424B5A]">
-                  Жолоооны үнэмлэхний зураг
+                  Гэрээний мэдээлэл оруулах
                 </span>
                 <div
                   className="bg-[#E6EFF2] h-[96px] w-full max-w-sm flex flex-col justify-center items-center rounded-md p-2 relative cursor-pointer"
@@ -249,10 +255,10 @@ const ListEmployees = () => {
                 </div>
               </div>
 
-              {/* Photo of vehicle certificate */}
+              {/* Enter the annex to the contract */}
               <div className="flex flex-col gap-2 w-full">
                 <span className="text-sm text-[#424B5A]">
-                  Тээврийн хэрэгслийн гэрчилгээний зураг
+                  Гэрээний хавсралт оруулах
                 </span>
                 <div
                   className="bg-[#E6EFF2] h-[96px] w-full max-w-sm flex flex-col justify-center items-center rounded-md p-2 relative cursor-pointer"
@@ -324,20 +330,26 @@ const ListEmployees = () => {
               </div>
             </div>
 
-            {/* Add button */}
+            {/* Excel template download */}
             <div className="w-full flex justify-end">
-              <Button
-                type="submit"
-                className="bg-[#005F7E] hover:bg-[#005f7eed]"
-              >
-                Нэмэх
+              <Button type="submit" className="bg-[#217346] hover:bg-[#217237]">
+                Excel загвар татах
               </Button>
             </div>
           </form>
         </Form>
+        {/* Register button */}
+        <div className="w-full flex justify-end">
+          <Button
+            type="submit"
+            className="bg-[#005F7E] hover:bg-[#005f7eed] w-full mt-16 mb-5"
+          >
+            Бүртгэх
+          </Button>
+        </div>
       </div>
     </>
   );
 };
 
-export default ListEmployees;
+export default RegistrationContracts;

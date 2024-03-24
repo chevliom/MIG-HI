@@ -4,13 +4,23 @@ import AuthLayout from "@/components/auth/AuthLayout";
 import { Sign_In, Sign_Up } from "@/components/auth/forms";
 
 import DashboardLayout from "@/components/dashboard/DashboardLayout";
+
+import EmployeeLayout from "@/components/Employees/EmployeeLayout";
 import {
-  Compensation,
-  Employee,
   EmployeeRegistration,
-  InsuranceContract,
   ListEmployees,
-} from "@/components/dashboard/pages";
+} from "@/components/Employees/pages";
+
+import InsuranceContract from "@/components/Insurance/InsuranceContractLayout";
+import {
+  ListContracts,
+  RegistrationContracts,
+} from "@/components/Insurance/pages";
+import CompensationLayout from "@/components/Compensation/CompensationLayout";
+import {
+  CompensationMaterials,
+  ReimbursementHistory,
+} from "@/components/Compensation/pages";
 
 const routes = () => {
   return (
@@ -27,16 +37,35 @@ const routes = () => {
         {/* private routes */}
         <Route path="/" element={<DashboardLayout />}>
           {/* Nested routes for Employee */}
-          <Route path="/" element={<Employee />}>
+          <Route path="/" element={<EmployeeLayout />}>
             <Route
-              path="/employee-registration"
+              path="employee-registration"
               element={<EmployeeRegistration />}
             />
             <Route path="list-employees" element={<ListEmployees />} />
           </Route>
 
-          <Route path="insurance-contract" element={<InsuranceContract />} />
-          <Route path="compensation" element={<Compensation />} />
+          {/* Nested routes for insurance */}
+          <Route path="/insurance-contract" element={<InsuranceContract />}>
+            <Route
+              path="registration-contracts"
+              element={<RegistrationContracts />}
+            />
+            <Route path="list-contracts" element={<ListContracts />} />
+          </Route>
+
+          {/* Nested routes for insurance */}
+          <Route path="/compensation" element={<CompensationLayout />}>
+            <Route
+              path="compensation-materials"
+              element={<CompensationMaterials />}
+            />
+
+            <Route
+              path="reimbursement-history"
+              element={<ReimbursementHistory />}
+            />
+          </Route>
         </Route>
       </Routes>
     </>

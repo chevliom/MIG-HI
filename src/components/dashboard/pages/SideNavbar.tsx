@@ -13,13 +13,13 @@ const SideNavbar = () => {
       focusImage: "/assets/sidenavbar/sideEmployeeLight.svg",
     },
     {
-      path: "/insurance-contract",
+      path: "/insurance-contract/registration-contracts",
       text: "Даатгалын гэрээ",
       image: "/assets/sidenavbar/sideInsuContract.svg",
       focusImage: "/assets/sidenavbar/sideInsuContractLight.svg",
     },
     {
-      path: "/compensation",
+      path: "/compensation/compensation-materials",
       text: "Нөхөн төлбөр",
       image: "/assets/sidenavbar/sideCompensation.svg",
       focusImage: "/assets/sidenavbar/sideCompensationLight.svg",
@@ -28,15 +28,9 @@ const SideNavbar = () => {
 
   useEffect(() => {
     const currentPath = location.pathname;
-    const normalizedPath = currentPath.replace(
-      /^\/$/,
-      "/employee-registration"
-    );
 
-    const activeIndex = links.findIndex((link) => link.path === normalizedPath);
+    const activeIndex = links.findIndex((link) => link.path === currentPath);
     setActiveLink(activeIndex);
-    // const activeIndex = links.findIndex((link) => link.path === currentPath);
-    // setActiveLink(activeIndex);
   }, [location.pathname]);
 
   return (
