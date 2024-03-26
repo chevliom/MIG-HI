@@ -17,7 +17,7 @@ const UserRegister = () => {
         <div className="w-full flex items-center gap-2">
           {/* Insurer */}
           <Link
-            to={"/employee-registration"}
+            to={"/employee/employee-registration"}
             onClick={() => handleTabClick("/employee-registration")}
             className={`${
               activeTab === "/employee-registration"
@@ -33,7 +33,7 @@ const UserRegister = () => {
 
           {/* Company */}
           <Link
-            to={"/list-employees"}
+            to={"/employee/list-employees"}
             onClick={() => handleTabClick("/list-employees")}
             className={`${
               activeTab === "/list-employees" ? "bg-[#FFFFFF]" : "bg-[#F9F9F9]"

@@ -1,8 +1,8 @@
 const DetailsListEmployees = () => {
   return (
     <>
-      <div className="flex flex-col">
-        <div className="grid grid-cols-9 w-full bg-[#E8EEEF] rounded-md px-3 py-5">
+      <div className="flex flex-col w-full">
+        <div className="flex items-center gap-4 w-full bg-[#E8EEEF] rounded-md px-3 py-5">
           <span className="text-[#005F7E] text-md font-medium">
             Байгууллагын регистр
           </span>
@@ -26,7 +26,7 @@ const DetailsListEmployees = () => {
           </span>
         </div>
 
-        <div className="grid grid-cols-9 w-full px-3 py-5">
+        <div className="flex items-center gap-4 w-full px-3 py-5">
           <span className="text-[#424B5A] text-sm font-medium">6785123</span>
           <span className="text-[#424B5A] text-sm font-medium">00000000</span>
           <span className="text-[#424B5A] text-sm font-medium">

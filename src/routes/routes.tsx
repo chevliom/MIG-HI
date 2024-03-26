@@ -1,7 +1,12 @@
 "use client";
 import { Route, Routes } from "react-router-dom";
 import AuthLayout from "@/components/auth/AuthLayout";
-import { Sign_In, Sign_Up } from "@/components/auth/forms";
+import {
+  ResetPassword,
+  Sign_In,
+  Sign_Up,
+  VerifyOtp,
+} from "@/components/auth/forms";
 
 import DashboardLayout from "@/components/dashboard/DashboardLayout";
 
@@ -29,17 +34,22 @@ const routes = () => {
     <>
       <Routes>
         {/* public routes */}
-        <Route path="/sign-in" element={<AuthLayout />}>
+        <Route path="/" element={<AuthLayout />}>
           <Route index element={<Sign_In />} />
-        </Route>
-        <Route path="/sign-up" element={<AuthLayout />}>
-          <Route index element={<Sign_Up />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/verify-otp" element={<VerifyOtp />} />
+          <Route path="/sign-up" element={<Sign_Up />} />
         </Route>
 
         {/* private routes */}
         <Route path="/" element={<DashboardLayout />}>
+          {/* if any go to / then bydefault redirect to the /employee/employee-regestion page */}
+          {/* <Route
+            path="/"
+            element={<Navigate to="/employee/employee-registration" />}
+          /> */}
           {/* Nested routes for Employee */}
-          <Route path="/" element={<EmployeeLayout />}>
+          <Route path="/employee" element={<EmployeeLayout />}>
             <Route
               path="employee-registration"
               element={<EmployeeRegistration />}

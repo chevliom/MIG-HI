@@ -140,25 +140,25 @@ const ListEmployees = () => {
               >
                 <span
                   className="cursor-pointer"
-                  onClick={() => navigate("/detail-list-employees")}
+                  onClick={() => navigate("/employee/detail-list-employees")}
                 >
                   {employee.name}
                 </span>
                 <span
                   className="cursor-pointer"
-                  onClick={() => navigate("/detail-list-employees")}
+                  onClick={() => navigate("/employee/detail-list-employees")}
                 >
                   {employee.country}
                 </span>
                 <span
                   className="cursor-pointer"
-                  onClick={() => navigate("/detail-list-employees")}
+                  onClick={() => navigate("/employee/detail-list-employees")}
                 >
                   {employee.city}
                 </span>
                 <span
                   className="cursor-pointer"
-                  onClick={() => navigate("/detail-list-employees")}
+                  onClick={() => navigate("/employee/detail-list-employees")}
                 >
                   {employee.amount}
                 </span>

@@ -7,7 +7,7 @@ const SideNavbar = () => {
 
   const links = [
     {
-      path: "/employee-registration",
+      path: "/employee/employee-registration",
       text: "Ажилтан",
       image: "/assets/sidenavbar/sideEmployee.svg",
       focusImage: "/assets/sidenavbar/sideEmployeeLight.svg",

@@ -104,9 +104,9 @@ const ReimbursementHistory = () => {
           </div>
         </div>
 
-        <div className="flex gap-8 flex-col items-center w-full overflow-x-auto">
+        <div className="flex gap-8 flex-col items-center w-full">
           {/* top tabs */}
-          <div className="flex gap-2 px-3 py-4 w-full h-auto bg-[#E8EEEF] rounded-md flex-nowrap">
+          <div className="flex gap-2 px-3 py-4 w-full h-auto bg-[#E8EEEF] rounded-md">
             {/* This one */}
             <div className="flex flex-col gap-2">
               <label htmlFor="" className="text-[#005F7E]">
